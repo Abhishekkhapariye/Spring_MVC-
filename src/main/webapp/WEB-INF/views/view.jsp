@@ -6,9 +6,16 @@
 	
 	
 		<table border="1" cellspacing="5" cellpadding="10">
-<form>action="/find" 
-<input type="text" name="id" placeholder="Enter id to search">
+		
+		
+                   
+                        
+		
+	 <s:url var="find"  value="/find?id=${em.id}"/>	
+<form action="${find}" modelattribute="em" >
+<input type="text" name="id"   value="${em.id}" placeholder="Enter id to search">
 <button>Find</button>
+
 
 </form>
 	<br/>		<th>ID</th>

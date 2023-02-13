@@ -9,7 +9,7 @@ import ksolves.demospringmvc.model.EmployeeModel;
 
 public interface EmployeeDao {
 
-	void saveEmployee(Employee employee);
+	//void saveEmployee(Employee employee);
 
 	List<Employee> viewEmployeeDetail();
 

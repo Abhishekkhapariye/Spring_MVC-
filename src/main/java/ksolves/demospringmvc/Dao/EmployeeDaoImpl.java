@@ -30,18 +30,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	SessionFactory sessionfactory;
 
 	@Override
-	public void saveEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		Session session = sessionfactory.openSession();
-		session.beginTransaction();
-		session.save(employee);
-		session.update(employee);
-		session.getTransaction().commit();
-		session.close();
-
-	}
-
-	@Override
 	public List<Employee> viewEmployeeDetail() {
 		Session session = sessionfactory.openSession();
 		List<Employee> data = session.createNativeQuery("select * from employee", Employee.class).getResultList();
@@ -60,57 +48,31 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	}
 
+	public Employee findEmpByEmpId(Employee employee) {
 
-  public Employee findEmpByEmpId( Employee employee){ 
-	
-	Session session=sessionfactory.openSession();
-	Employee em= session.createNativeQuery("select * from  EMPLOYEE where id="+employee.getId(),Employee.class).getSingleResult();	
-   System.out.print(em);
-   return em;
-  }
-  
+		Session session = sessionfactory.openSession();
+		Employee em = session.createNativeQuery("select * from  EMPLOYEE where id=" + employee.getId(), Employee.class)
+				.getSingleResult();
+		System.out.print(em);
+		return em;
+	}
 
-  public void editEmployee(Employee employee) { 
-	  Session session=sessionfactory.openSession();
-	  session.beginTransaction();
-	  System.out.println("********"+employee+"*********");
-	 // employee=findEmpByEmpId(employee);
-	 // String sql = "UPDATE EMPLOYEE SET firstName="+ employee.getFirstName()+", lastName="+employee.getLastName()+", email="+employee.getEmail()+" WHERE id ="+employee.getId();
-		/*
-		 * Map m = new HashMap();
-		 * 
-		 * m.put("firsttName", employee.getFirstName()); m.put("lastName",
-		 * employee.getLastName()); m.put("email", employee.getEmail());
-		 */
-     session.update(employee);
-     session.getTransaction().commit();
-     session.close();
-		/*
-		 * Session session=sessionfactory.openSession(); session.beginTransaction();
-		 * Employee e= EmployeeDaoImpl.this.findEmpByEmpId(employee); //s m=
-		 * session.createNativeQuery("update EMPLOYEE set firstName='"+e.setFirstName(
-		 * "akash")+"', lastName="+e.setLastName("verma")+",email='"+e.setEmail("ak@345"
-		 * )+"' where id="+e.getId()); e.setFirstName(employee.getFirstName());
-		 * e.setLastName(employee.getLastName()); e.setEmail(employee.getEmail());
-		 * 
-		 * System.out.print(e); session.flush(); return e;
-		 */
-	 /*
-		 * em.setFirstName(e.getFirstName()); em.setLastName(e.getLastName());
-		 * em.setEmail(em.getEmail());
-		 */
-	//e= session.createNativeQuery("UPDATE EMPLOYEE SET firstName="+em.setFirstName(e.getFirstName())+",lastName="+em.setLastName(e.getLastName())+",email="+em.setEmail(e.getEmail())+" WHERE id="+id,Employee.class).getSingleResult();
-	//e=session.createNativeQuery("UPDATE EMPLOYEE SET firstName='Abhi',lastName='Pawar',email='ak@123' WHERE id="+id,Employee.class).getSingleResult();
-	
-	
-	
+	public void editEmployee(Employee employee) {
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		
+		session.saveOrUpdate(employee);
+		session.getTransaction().commit();
+		session.close();
+
+	}
 	/*
-	 * String
-	 * sql="update EMPLOYEE set firstName='"+em.getFirstName()+"', lastName="+em.
-	 * getLastName()+",email='"+em.getEmail()+"' where id="+em.getId()+""; return
-	 * session.update(sql);
+	 * @Override public void saveEmployee(Employee employee) { // TODO
+	 * Auto-generated method stub Session session = sessionfactory.openSession();
+	 * session.beginTransaction(); session.save(employee); session.update(employee);
+	 * session.getTransaction().commit(); session.close();
+	 * 
+	 * }
 	 */
-	
-  }
- 
+
 }

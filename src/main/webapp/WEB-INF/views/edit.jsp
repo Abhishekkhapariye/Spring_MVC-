@@ -23,6 +23,12 @@
                     <s:url var="save"  value="/save"/>
                     <f:form action="${save}" modelAttribute="emp1">
                         <table border="5">
+                        
+                         <tr>
+                                <td>ID</td>
+                                <td><f:input path="id" /> </td>
+                            </tr>
+                        
                             <tr>
                                 <td>FirstName</td>
                                 <td><f:input path="firstName" /> </td>

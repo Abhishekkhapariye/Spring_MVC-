@@ -21,12 +21,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeDao employeedao;
 
-	@Override
-	public void saveEmployeeDetails(Employee employee) {
-
-		employeedao.saveEmployee(employee);
-
-	}
+	/*
+	 * @Override public void saveEmployeeDetails(Employee employee) {
+	 * 
+	 * employeedao.saveEmployee(employee);
+	 * 
+	 * }
+	 */
 
 	public List<EmployeeModel> viewEmployeeDetails() {
 		List<EmployeeModel> emp1 = new ArrayList<EmployeeModel>();
@@ -47,13 +48,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeedao.deleteEmployee(id);
 	}
 
-	
-	  public void edit(Employee employee) {
-		 
-		  employeedao.editEmployee(employee);
-	  
-	  }
-	 
+	public void edit(Employee employee) {
+		employeedao.editEmployee(employee);
+	}
 
 	private Employee convertModelToEntity(EmployeeModel employeemodel) {
 
