@@ -1,4 +1,4 @@
-package rm;
+/*package rm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,4 +21,5 @@ public class EmployeeRowMapper implements RowMapper<Employee>{
 	}
 	
 
-}
+}*/
+
