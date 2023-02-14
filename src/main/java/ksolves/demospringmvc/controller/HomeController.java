@@ -22,7 +22,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView test2() {
+	public ModelAndView test2(@ModelAttribute("emp1") Employee employee) {
 		EmployeeModel emp = new EmployeeModel();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("registration");
