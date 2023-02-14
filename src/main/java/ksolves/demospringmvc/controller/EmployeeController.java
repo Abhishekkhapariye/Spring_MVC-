@@ -35,17 +35,16 @@ public class EmployeeController {
 	SessionFactory sessionfactory;
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ModelAndView saveRepo(@Valid @ModelAttribute("emp1") Employee employee, HttpSession sess) {
-		Session session = sessionfactory.openSession();
-		// if(employee.getId()==null) {
-		
-		employeservice.edit(employee);
-		// else {
-		// employeservice.edit(employee);
-		// }
+	public ModelAndView saveRepo(@Valid @ModelAttribute("emp1") Employee employee,Errors error) {
+		if (error.hasErrors()) {
+			return new ModelAndView("registration");
+		}
+
+		else
+			employeservice.edit(employee);
+
 		return new ModelAndView("save");
 	}
-
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public ModelAndView getEmp(Employee employee) throws IOException {
 		EmployeeModel emplist = new EmployeeModel();
