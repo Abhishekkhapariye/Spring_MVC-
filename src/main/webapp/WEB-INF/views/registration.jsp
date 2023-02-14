@@ -34,21 +34,21 @@
 							<form:input id="login-password" type="text" class="form-control"
 								name="firstName" placeholder="first name" path="firstName" />
 						</div>
-<
+<form:errors path="lastName" cssClass="text-danger" />
 						<div style="margin-bottom: 50px" class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-lock"></i></span>
 							<form:input id="login-password" type="text" class="form-control"
 								name="lastName" placeholder="last name" path="lastName" />
 						</div>
-
+<form:errors path="lastName" cssClass="text-danger" />
 						<div style="margin-bottom: 50px" class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-lock"></i></span>
 							<form:input id="login-password" type="email" class="form-control"
 								name="email" placeholder="email" path="email" />
 						</div>
-
+	<form:errors path="email" cssClass="text-danger" />
 						<div style="margin-top: 20px" class="form-group">
 							<!-- Button -->
 							<div class="col-sm-12 controls">
