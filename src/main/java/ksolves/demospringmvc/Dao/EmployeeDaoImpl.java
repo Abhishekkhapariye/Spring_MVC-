@@ -53,6 +53,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Session session = sessionfactory.openSession();
 		Employee em = session.createNativeQuery("select * from  EMPLOYEE where id=" + employee.getId(), Employee.class)
 				.getSingleResult();
+		if(viewEmployeeDetail().contains(em)!=true) {
+			
+			throw new NoResultException("Not in a record");
+			}
+		else
 		System.out.print(em);
 		return em;
 	}
