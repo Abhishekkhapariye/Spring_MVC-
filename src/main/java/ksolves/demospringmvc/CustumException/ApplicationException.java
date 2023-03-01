@@ -32,6 +32,19 @@ public class ApplicationException
 	        
 	        return new ModelAndView("register");
 	      
-			};
+			}
+	
+	
+			@ExceptionHandler(NoResultException.class)
+			public ModelAndView handleNoRecordException(NoResultException exc) {
+				ModelAndView mv=new ModelAndView();
+				
+		            mv.setViewName("page");
+		    		mv.addObject("emp1", exc.getMessage());
+		        
+		        return mv;
+		      
+				
+			}
 	 }
 
