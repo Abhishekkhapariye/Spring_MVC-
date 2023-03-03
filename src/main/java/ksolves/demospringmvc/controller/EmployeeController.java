@@ -62,21 +62,10 @@ public class EmployeeController {
 		return mv;
 
 	}
-	/*
-	 * @RequestMapping(value = "/find/{freeText}") public ModelAndView
-	 * searchEm(Model m, HttpSession session, ("freeText") Integer freeText) {
-	 * Integer id = (Integer) session.getAttribute("id"); Employee e = new
-	 * Employee(); m.addAttribute("freeText", employeservice.findById(e));
-	 * ModelAndView mv = new ModelAndView(); mv.setViewName("page");
-	 * mv.addObject("em", m);
-	 * 
-	 * return mv;// jsp page
-	 * 
-	 * }
-	 */
+	
 
 	@RequestMapping(value = "/find/{id}")
-	public ModelAndView findById(@PathVariable("id") @ModelAttribute("emp") Integer id) {
+	public ModelAndView findById(@RequestParam("id")Integer id) {
 		ModelAndView mv = new ModelAndView();
 		Employee em = new Employee();
 		em.setId(id);
