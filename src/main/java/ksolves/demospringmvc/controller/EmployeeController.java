@@ -64,7 +64,7 @@ public class EmployeeController {
 	}
 	
 
-	@RequestMapping(value = "/find/{id}")
+	@RequestMapping(value = "/find")
 	public ModelAndView findById(@RequestParam("id")Integer id) {
 		ModelAndView mv = new ModelAndView();
 		Employee em = new Employee();
